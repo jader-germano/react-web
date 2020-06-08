@@ -144,7 +144,6 @@ const CollectPoint = () => {
            data.append('items',items.join(','));
            selectedFile && data.append('image', selectedFile);
 
-        console.log(data);
         await api.post('collect-point', data);
 
         alert('Ponto de coleta criado!')
