@@ -4,6 +4,8 @@
 /node_modules
 /.pnp
 .pnp.js
+.fire*
+*/.log
 
 # testing
 /coverage
@@ -24,6 +26,7 @@ yarn-error.log*
 
 # IDEs and editors
 /.idea
+/.vscode
 .project
 .classpath
 .c9/
@@ -42,10 +45,11 @@ yarn-error.log*
 # misc
 /.sass-cache
 /connect.lock
-/coverage
 /libpeerconnection.log
 npm-debug.log
 yarn-error.log
 testem.log
 /typings
 /package-lock.json
+/.fire*
+*.log
