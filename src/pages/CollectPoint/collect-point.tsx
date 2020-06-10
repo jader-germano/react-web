@@ -76,7 +76,8 @@ const CollectPoint = () => {
     useEffect(() => {
         axios.get<IBGEUFResponse[]>('https://servicodados.ibge.gov.br/api/v1/localidades/estados')
             .then(response => {
-                const ufInitials = response.data.map(uf => uf.sigla);
+                const ufInitials = response.data.map(uf => uf.sigla)
+                    .sort((a,b) => a.toLowerCase() > b.toLowerCase() ? 1: -1);
                 setUfs(ufInitials);
             });
     }, []);
@@ -87,7 +88,8 @@ const CollectPoint = () => {
         }
         axios.get<IBGECityResponse[]>(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${selectedUF}/municipios`)
             .then(response => {
-                const cityNames = response.data.map(city => city.nome);
+                const cityNames = response.data.map(city => city.nome)
+                    .sort((a,b) => a.toLowerCase() > b.toLowerCase() ? 1: -1);
                 setCities(cityNames);
             });
     }, [selectedUF]);
@@ -131,7 +133,7 @@ const CollectPoint = () => {
         const uf = selectedUF;
         const city = selectedCity;
         const [latitude, longitude] = selectedPosition;
-        const items = selectedItems;
+        const itemsSelected = selectedItems;
 
         const data = new FormData()
            data.append('name',name);
@@ -141,7 +143,7 @@ const CollectPoint = () => {
            data.append('city',city);
            data.append('latitude', String(latitude));
            data.append('longitude',String(longitude));
-           data.append('items',items.join(','));
+           data.append('items', itemsSelected.join(','));
            selectedFile && data.append('image', selectedFile);
 
         await api.post('collect-point', data);
