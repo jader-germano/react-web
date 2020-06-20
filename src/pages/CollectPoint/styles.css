@@ -201,3 +201,39 @@
   background: #E1FAEC;
   border: 2px solid #34CB79;
 }
+
+.alert-screen {
+  position: absolute;
+  width: 1440px;
+  height: 820px;
+  left: 0px;
+  top: 0px;
+
+  background: #0E0A14;
+  opacity: 0.95;
+}
+
+.sucesso {
+
+  position: relative;
+  width: 1440px;
+  height: 820px;
+
+  /* Background */
+
+  background: #F0F0F5;
+}
+
+.sucess-icon {
+  position: absolute;
+  left: 8.33%;
+  right: 8.33%;
+  top: 8.31%;
+  bottom: 8.36%;
+
+  /* Greenpeace */
+
+  border: 4px solid #34CB79;
+}
+
+
